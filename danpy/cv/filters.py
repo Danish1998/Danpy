@@ -1,3 +1,5 @@
+from __future__ import division
+
 import numpy as np
 import cv2
 
@@ -66,7 +68,7 @@ def HSV_Picker(hsv_image, output="HSV Mask"):
         
         # Apply morph opening to reduce noise
         kernel = np.ones((open_ksize, open_ksize), np.uint8)
-        for i in xrange(0, open_iter):
+        for _ in range(open_iter):
             hsv_mask = cv2.morphologyEx(hsv_mask, cv2.MORPH_OPEN, kernel)
         
         # Display hsv mask
@@ -138,7 +140,7 @@ def RGB_Picker(rgb_image, output="RGB Mask"):
 
         # Apply morph opening to reduce noise
         kernel = np.ones((open_ksize, open_ksize), np.uint8)
-        for i in xrange(0, open_iter):
+        for _ in range(0, open_iter):
             rgb_mask = cv2.morphologyEx(rgb_mask, cv2.MORPH_OPEN, kernel)
 
         # Display rgb mask
@@ -210,7 +212,7 @@ def Lab_Picker(Lab_image, output="Lab Mask"):
 
         # Apply morph opening to reduce noise
         kernel = np.ones((open_ksize, open_ksize), np.uint8)
-        for i in xrange(0, open_iter):
+        for _ in range(0, open_iter):
             Lab_mask = cv2.morphologyEx(Lab_mask, cv2.MORPH_OPEN, kernel)
 
         # Display Lab mask
@@ -282,7 +284,7 @@ def YCrCb_Picker(ycrcb_image, output="YCrCb Mask"):
 
         # Apply morph opening to reduce noise
         kernel = np.ones((open_ksize, open_ksize), np.uint8)
-        for i in xrange(0, open_iter):
+        for _ in range(0, open_iter):
             ycrcb_mask = cv2.morphologyEx(ycrcb_mask, cv2.MORPH_OPEN, kernel)
 
         # Display YCrCb mask
